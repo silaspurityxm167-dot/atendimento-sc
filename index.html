@@ -1,1 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Casa do Estofador | Tecidos e Napas para Estofados</title>
+    <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            scroll-behavior: smooth;
+        }
+
+        /* Cores personalizadas */
+        :root {
+            --verde-barriga: #2e6b3e;
+            --verde-claro: #5f8b6f;
+            --bege: #f3ede5;
+            --detalhe-dourado: #d4af37;
+            --marrom: #5e3a2b;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-size: 1.6rem;
+            color: var(--verde-barriga) !important;
+        }
+
+        .navbar-brand span {
+            color: var(--detalhe-dourado);
+            font-weight: 800;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #2c3e2f !important;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--detalhe-dourado) !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-estofador {
+            background-color: var(--verde-barriga);
+            color: white;
+            border-radius: 40px;
+            padding: 10px 28px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-estofador:hover {
+            background-color: #1f4f2c;
+            transform: scale(1.02);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #e8dfd4 0%, #d9cfc0 100%);
+            padding: 80px 0;
+            border-bottom: 5px solid var(--detalhe-dourado);
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            color: #1f3b2c;
+            font-size: 3rem;
+        }
+
+        .hero .highlight {
+            color: var(--verde-barriga);
+            border-bottom: 3px solid var(--detalhe-dourado);
+            display: inline-block;
+        }
+
+        .card-tecido {
+            border: none;
+            border-radius: 24px;
+            background: white;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .card-tecido:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-circle {
+            background-color: var(--verde-claro);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .icon-circle i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--detalhe-dourado);
+            border-radius: 4px;
+        }
+
+        .bg-bege {
+            background-color: var(--bege);
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 30px;
+            padding: 1.5rem;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        footer {
+            background-color: #1f2e22;
+            color: #e2e2d6;
+        }
+
+        .social-icons a {
+            color: #cfd8c5;
+            font-size: 1.5rem;
+            margin: 0 12px;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: var(--detalhe-dourado);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            z-index: 1050;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20b859;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Whatsapp flutuante -->
+<a href="https://wa.me/5564999896161?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20tecidos%20e%20napas." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Casa do <span>Estofador</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tecidos">Tecidos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#napas">Napas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="btn btn-estofador"><i class="bi bi-telephone-fill me-2"></i>Fale Conosco</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="inicio" class="hero">
+    <div class="container">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-7">
+                <span class="badge bg-warning text-dark mb-3 py-2 px-3 rounded-pill"><i class="bi bi-star-fill me-1"></i> Tradição desde 2005</span>
+                <h1 class="mb-4">Tecidos e Napas <span class="highlight">de alta qualidade</span> para seu estofado</h1>
+                <p class="lead mb-4">Transforme seus móveis com estilo, conforto e durabilidade. A Casa do Estofador oferece o melhor mix de tecidos, napas e acessórios para profissionais e apaixonados por decoração.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#tecidos" class="btn btn-estofador btn-lg"><i class="bi bi-grid-3x3-gap-fill me-2"></i> Ver coleções</a>
+                    <a href="#contato" class="btn btn-outline-dark btn-lg rounded-pill px-4"><i class="bi bi-envelope me-2"></i> Pedir amostra</a>
+                </div>
+                <div class="mt-5 d-flex gap-4">
+                    <div><i class="bi bi-truck fs-2 text-success me-2"></i> <span class="fw-semibold">Entrega Rápida</span></div>
+                    <div><i class="bi bi-shield-check fs-2 text-success me-2"></i> <span class="fw-semibold">Qualidade Garantida</span></div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div class="bg-white p-3 rounded-4 shadow d-inline-block">
+                    <i class="bi bi-scissors fs-1 text-success"></i>
+                    <i class="bi bi-brush fs-1 text-warning mx-3"></i>
+                    <i class="bi bi-layers fs-1 text-success"></i>
+                    <p class="mt-3 fst-italic text-muted">"O lugar certo para quem valoriza o acabamento perfeito"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO TECIDOS -->
+<section id="tecidos" class="py-5">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Nossos Tecidos Premium</h2>
+            <p class="text-muted mb-5">Linhas exclusivas para estofados residenciais, automotivos e comerciais</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-gem"></i></div>
+                    <h4 class="fw-bold">Suede & Camurça</h4>
+                    <p class="text-muted">Toque aveludado, sofisticado e resistente. Ideal para sofás e poltronas modernas.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">+12 cores</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-layers-fill"></i></div>
+                    <h4 class="fw-bold">Chenille</h4>
+                    <p class="text-muted">Maciez incomparável, toque premium e alta durabilidade antimanchas.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">Alta resistência</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-brightness-alt-high"></i></div>
+                    <h4 class="fw-bold">Linho Natural</h4>
+                    <p class="text-muted">Respirável, ecológico e elegante. Perfeito para ambientes rústicos e clean.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">Sustentável</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-car-front-fill"></i></div>
+                    <h4 class="fw-bold">Courvin & Automotivo</h4>
+                    <p class="text-muted">Resistente a rasgos, fácil limpeza, ideal para bancos de carros e barcos.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">Anti UV</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-palette-fill"></i></div>
+                    <h4 class="fw-bold">Jacquard</h4>
+                    <p class="text-muted">Desenhos exclusivos, texturas ricas e sofisticação atemporal.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">Alta definição</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card-tecido p-4 h-100 text-center">
+                    <div class="icon-circle mx-auto"><i class="bi bi-droplet-fill"></i></div>
+                    <h4 class="fw-bold">Impermeáveis</h4>
+                    <p class="text-muted">Tecnologia repelente a líquidos, indicado para casas com crianças e pets.</p>
+                    <span class="badge bg-secondary bg-opacity-25 text-dark p-2">Fácil limpeza</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEÇÃO NAPAS (ESPUMAS) -->
+<section id="napas" class="py-5 bg-bege">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Napas e Espumas de Alta Densidade</h2>
+            <p class="text-muted mb-5">Conforto que dura: espumas D23, D33, D45 e Napas especiais para estofados profissionais</p>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <img src="https://placehold.co/600x400/f3ede5/5e3a2b?text=Espumas+de+Qualidade" alt="Napas e espumas" class="img-fluid rounded-4 shadow" style="object-fit: cover; width: 100%;">
+                <div class="mt-3 text-center small text-muted">Densidades variadas para máxima ergonomia</div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="info-card text-center">
+                            <i class="bi bi-arrow-repeat fs-1 text-success"></i>
+                            <h5 class="mt-2">Napa D23</h5>
+                            <p>Ideal para almofadas decorativas e estofados de pouco uso.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card text-center">
+                            <i class="bi bi-arrow-up-circle-fill fs-1 text-success"></i>
+                            <h5 class="mt-2">Napa D33</h5>
+                            <p>Conforto médio, perfeito para sofás e cadeiras do dia a dia.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card text-center">
+                            <i class="bi bi-shield-plus fs-1 text-success"></i>
+                            <h5 class="mt-2">Napa D45</h5>
+                            <p>Alta resistência, indicada para uso intenso e áreas públicas.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card text-center">
+                            <i class="bi bi-bag-plus fs-1 text-success"></i>
+                            <h5 class="mt-2">Napa Ortopédica</h5>
+                            <p>Viscoelástica com memória de forma, conforto terapêutico.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-success mt-4 rounded-4">
+                    <i class="bi bi-info-circle-fill me-2"></i> Cortamos napas sob medida para o seu projeto! Solicite orçamento.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INFORMAÇÕES + DIFERENCIAIS COM ÍCONES E FRASES -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="p-4">
+                    <i class="bi bi-truck-fast fs-1 text-success"></i>
+                    <h4 class="mt-3">Entrega ágil</h4>
+                    <p>Atendemos Chapecó e toda região Sul do Brasil com agilidade e segurança.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4">
+                    <i class="bi bi-piggy-bank-fill fs-1 text-success"></i>
+                    <h4 class="mt-3">Preços competitivos</h4>
+                    <p>Distribuidora direta, sem atravessadores, garantindo o melhor custo-benefício.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4">
+                    <i class="bi bi-chat-dots-fill fs-1 text-success"></i>
+                    <h4 class="mt-3">Atendimento especializado</h4>
+                    <p>Equipe pronta para auxiliar na escolha do tecido ou napa ideal.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <div class="p-4 bg-white rounded-4 shadow-sm">
+                    <i class="bi bi-quote fs-1 text-muted"></i>
+                    <p class="fs-4 fst-italic">"Qualidade e tradição: há mais de 18 anos vestindo os móveis de Chapecó com tecidos e napas de primeira linha."</p>
+                    <h6 class="mt-2">– Distribuidora Barriga Verde</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE + DADOS DA EMPRESA (CNPJ, SITUAÇÃO CADASTRAL) -->
+<section id="sobre" class="py-5 bg-bege">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-3">Distribuidora de Plásticos e Tecidos <span class="text-success">Barriga Verde</span></h2>
+                <p class="mb-2"><strong><i class="bi bi-building me-2"></i> Razão Social:</strong> Distribuidora de Plasticos e Tecidos Barriga Verde LTDA</p>
+                <p><strong><i class="bi bi-tag me-2"></i> Nome Fantasia:</strong> Casa do Estofador</p>
+                <p><strong><i class="bi bi-calendar-check me-2"></i> Situação Cadastral:</strong> Ativa desde <span class="fw-bold">03/11/2005</span> — mais de 18 anos de confiança.</p>
+                <p><strong><i class="bi bi-qr-code me-2"></i> CNPJ:</strong> 80.485.832/0001-84</p>
+                <p><strong><i class="bi bi-geo-alt-fill me-2"></i> Endereço Matriz:</strong> Avenida General Osorio, 617 - Centro, Chapecó - SC, 89802-211</p>
+                <p><strong><i class="bi bi-telephone-fill me-2"></i> Telefone / WhatsApp:</strong> (64) 99989-6161</p>
+                <hr class="my-4">
+                <p>Somos referência na região Oeste de Santa Catarina, fornecendo tecidos de decoração, napas, espumas e acessórios para estofadores, marceneiros e designers de interiores. Nosso compromisso é aliar durabilidade, beleza e conforto a cada metro vendido.</p>
+                <a href="#contato" class="btn btn-estofador mt-2"><i class="bi bi-envelope-paper-fill me-2"></i>Entre em contato agora</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-header bg-success text-white py-3">
+                        <i class="bi bi-pin-map-fill me-1"></i> Onde nos encontrar
+                    </div>
+                    <div class="card-body p-0">
+                        <iframe class="w-100" height="300" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Avenida+General+Osorio+617+Chapeco+SC&zoom=15&language=pt-BR"></iframe>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <small><i class="bi bi-clock-history me-1"></i> Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO E FORMULÁRIO RÁPIDO -->
+<section id="contato" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Fale com a Casa do Estofador</h2>
+            <p class="text-muted">Solicite amostras, orçamentos ou tire dúvidas com nossos especialistas</p>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-5">
+                <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+                    <h4 class="mb-3"><i class="bi bi-headset"></i> Atendimento direto</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-whatsapp text-success fs-5 me-3"></i> (64) 99989-6161</li>
+                        <li class="mb-3"><i class="bi bi-envelope text-success fs-5 me-3"></i> contato@casadoestofador.com.br</li>
+                        <li class="mb-3"><i class="bi bi-clock text-success fs-5 me-3"></i> Horário de funcionamento: 8h-18h (seg-sex)</li>
+                    </ul>
+                    <hr>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-dark me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-dark me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-dark"><i class="bi bi-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <i class="bi bi-truck"></i> Entregamos para todo Brasil mediante cotação.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <h4 class="mb-4"><i class="bi bi-chat-text-fill"></i> Envie sua mensagem</h4>
+                    <form action="#" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nome completo</label>
+                                <input type="text" class="form-control" placeholder="Seu nome" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Telefone/WhatsApp</label>
+                                <input type="tel" class="form-control" placeholder="(64) 99999-9999">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">E-mail</label>
+                                <input type="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Mensagem / Produto de interesse</label>
+                                <textarea rows="4" class="form-control" placeholder="Gostaria de informações sobre tecidos para sofá, napa D33..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-estofador w-100"><i class="bi bi-send me-2"></i> Enviar mensagem</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-5 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3"><i class="bi bi-shop"></i> Casa do Estofador</h5>
+                <p class="small">Especialistas em tecidos, napas e soluções para estofamento. Qualidade e tradição desde 2005.</p>
+                <p class="small mb-0">CNPJ: 80.485.832/0001-84</p>
+                <p class="small">© 2025 Todos os direitos reservados.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Links úteis</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#tecidos" class="text-decoration-none text-light-emphasis">Tecidos</a></li>
+                    <li class="mt-2"><a href="#napas" class="text-decoration-none text-light-emphasis">Napas e Espumas</a></li>
+                    <li class="mt-2"><a href="#sobre" class="text-decoration-none text-light-emphasis">Sobre a empresa</a></li>
+                    <li class="mt-2"><a href="#contato" class="text-decoration-none text-light-emphasis">Fale conosco</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="text-white mb-3">Atendimento</h5>
+                <p class="small mb-1"><i class="bi bi-geo-alt"></i> Av. General Osorio, 617 - Centro, Chapecó/SC</p>
+                <p class="small mb-1"><i class="bi bi-telephone"></i> (64) 99989-6161</p>
+                <p class="small"><i class="bi bi-envelope"></i> contato@casadoestofador.com.br</p>
+            </div>
+        </div>
+        <hr class="bg-light opacity-25">
+        <div class="text-center small">Distribuidora Barriga Verde LTDA | Situação cadastral ativa desde 03/11/2005 | Confiança que estofa.</div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Simples interação para alerta de formulário (apenas demonstração) -->
+<script>
+    document.querySelector("form")?.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato. Obrigado por confiar na Casa do Estofador.");
+        this.reset();
+    });
+</script>
+</body>
+</html>
